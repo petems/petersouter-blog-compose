@@ -1,2 +1,4 @@
 *.key
 *.crt
+petemsGhost/content/*
+petemsGhost/config/*
