@@ -1,7 +1,7 @@
 FROM nginx
 # Delete defaults
 RUN rm /etc/nginx/nginx.conf
-RUN rm etc/nginx/conf.d/default.conf
+RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY sites-enabled/petersouter.co.uk.conf /etc/nginx/sites-available/petersouter.co.uk.conf
 COPY conf.d/ghost_blog_petersouter.co.uk-upstream.conf /etc/nginx/conf.d/ghost_blog_petersouter.co.uk-upstream.conf
