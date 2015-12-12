@@ -5,10 +5,10 @@ ghost_nginx:
     - 80:80
     - 443:443
   links:
-    - 'ghost_blog:ghost_blog'
+    - 'ghostblog:ghostblog'
 
-ghost_blog:
-  container_name: ghost_blog
+ghostblog:
+  container_name: ghostblog
   image: ghost
   restart: always
   ports:
