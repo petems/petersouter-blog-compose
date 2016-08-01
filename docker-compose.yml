@@ -16,8 +16,5 @@ ghostblog:
   env_file:
     - ./config.env
   volumes:
-    - "./petemsGhost/content/themes:/usr/src/ghost/content/themes"
-    - "./petemsGhost/content/apps:/usr/src/ghost/content/apps"
-    - "./petemsGhost/content/images:/usr/src/ghost/content/images"
-    - "./petemsGhost/content/data:/usr/src/ghost/content/data"
+    - "./petemsGhost/content/:/usr/src/app/content/"
     - "./petemsGhost/config:/var/lib/ghost"
