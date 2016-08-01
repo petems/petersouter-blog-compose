@@ -8,8 +8,8 @@ ghost_nginx:
     - 'ghostblog:ghostblog'
 
 ghostblog:
-  container_name: ghostblog
-  image: ghost
+  container_name: petemsGhost
+  build: ./petemsGhost/
   restart: always
   ports:
     - 2368:2368
