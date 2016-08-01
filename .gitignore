@@ -2,3 +2,4 @@
 *.crt
 petemsGhost/content/*
 petemsGhost/config/*
+config.env
