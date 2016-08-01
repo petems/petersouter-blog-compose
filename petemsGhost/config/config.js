@@ -17,7 +17,7 @@ config = {
         database: {
             client: 'sqlite3',
             connection: {
-                filename: path.join('/usr/src/ghost/content/data/ghost.db')
+                filename: path.join('/usr/src/app/content/data/ghost.db')
             },
             debug: true
         },
