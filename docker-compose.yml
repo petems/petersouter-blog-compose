@@ -1,20 +1,30 @@
-ghost_nginx:
-  restart: always
-  build: ./ghostNginx/
-  ports:
-    - 80:80
-    - 443:443
-  links:
-    - 'ghostblog:ghostblog'
-
-ghostblog:
-  container_name: petemsGhost
-  build: ./petemsGhost/
-  restart: always
-  ports:
-    - 2368:2368
-  env_file:
-    - ./config.env
-  volumes:
-    - "./petemsGhost/content/:/usr/src/app/content/"
-    - "./petemsGhost/config:/var/lib/ghost"
+version: '2'
+services:
+  db:
+    container_name: postgres
+    image: postgres:9.5.4
+    env_file:
+      - ./postgres/config.env
+    volumes:
+      - '/opt/docker/postgresql:/var/lib/postgresql'
+  ghostblog:
+    container_name: ghostblog
+    build: ./petemsGhost/
+    restart: always
+    env_file:
+      - ./petemsGhost/config.env
+    volumes:
+      - './petemsGhost/content/:/usr/src/app/content/'
+      - './petemsGhost/config:/var/lib/ghost'
+    ports:
+      - 2368:2368
+    links:
+      - 'db:db'
+  ghost_nginx:
+    restart: always
+    build: ./ghostNginx/
+    ports:
+      - 80:80
+      - 443:443
+    links:
+      - 'ghostblog:ghostblog'
