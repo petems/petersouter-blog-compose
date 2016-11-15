@@ -20,11 +20,3 @@ services:
       - 2368:2368
     links:
       - 'db:db'
-  ghost_nginx:
-    restart: always
-    build: ./ghostNginx/
-    ports:
-      - 80:80
-      - 443:443
-    links:
-      - 'ghostblog:ghostblog'
