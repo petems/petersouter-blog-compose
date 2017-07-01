@@ -9,7 +9,7 @@ services:
       - '/opt/docker/postgresql:/var/lib/postgresql'
   ghostblog:
     container_name: ghostblog
-    build: ./petemsGhost/
+    image: zzrot/alpine-ghost:v0.11.7
     restart: always
     env_file:
       - ./petemsGhost/config.env
